@@ -9,3 +9,5 @@ foglaltak.insert(melyik_szek-1, "🔴")
 
 print("🔴 ha szék foglalt, 🟢 ha nem foglalt")
 print(foglaltak)
+
+# szünet
