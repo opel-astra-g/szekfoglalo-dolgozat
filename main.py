@@ -1,25 +1,24 @@
-foglaltak = []
-i = 0
+szekek = []
+szekek_szama = 8
 
-while i < 8:
-    foglaltak.append("🟢")
-    i += 1
+for i in range(szekek_szama):
+    szekek.append("🟢")
 
-def foglalas():
-    melyik_szek = int(input("Melyik széket szeretnéd lefoglalni? (1-8): "))
-    while not (1 <= melyik_szek <= 8):
-        melyik_szek = int(input("Melyik széket szeretnéd lefoglalni? (1-8): "))
-    foglaltak.pop(melyik_szek)
-    foglaltak.insert(melyik_szek-1, "🔴")
-    print("🔴 ha szék foglalt, 🟢 ha nem foglalt")
-    print(foglaltak)
+print(szekek)
 
-    megegy = input("Szeretnél mégegy széket foglalni? (igen-nem)")
-    while not (megegy == "igen" or megegy == "nem"):
-        megegy = input("Szeretnél mégegy széket foglalni? (igen-nem)")
-    if megegy == "igen":
-        foglalas()
-    elif megegy == "nem":
-        breakpoint
+while True:
 
-foglalas()
+    melyik_szekek = input(f"Melyik széket szeretnéd lefoglalni? (1-{szekek_szama}) Írd be hogy 'kilép' a kilépéshez.\n>")
+    if melyik_szekek == "kilép":
+        break
+    try:
+        int_szek = int(melyik_szekek)-1
+
+        if not 0 <= int_szek < szekek_szama:
+            raise ValueError
+        szekek.pop(int_szek)
+        szekek.insert(int_szek, "🔴")
+    except (ValueError, TypeError):
+        print(f"Helytelen érték! Csak számok 1-{szekek_szama}ig")
+        continue
+    print(szekek)
