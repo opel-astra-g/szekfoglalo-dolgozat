@@ -1,4 +1,4 @@
-szekek_szama = 10
+SZEKEK_SZAMA = 10
 szekek = ["🟢"]*szekek_szama
 
 loop = 0
